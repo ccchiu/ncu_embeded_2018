@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
-           // pictureBox1.Visible = false;
+            
             InitializeComponent();
         }
 
@@ -223,8 +223,18 @@ namespace WindowsFormsApp1
         {
             Console.WriteLine("Warning...PIC.");
             pictureBox1.Visible = show;
+            if (show) {
+                timer1.Start();
+            }else {
+                timer1.Stop();
+            }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = !pictureBox1.Visible;
+
+        }
     }
 }
 
